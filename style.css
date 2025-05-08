@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #dae5ec;
+  font-family: "Share Tech Mono", monospace;
+}
+
+.cabecalho {
+  background-color: #042959;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  font-size: 25px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.digitando {
+  font-size: 30px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #ffffff;
+  animation: piscar 0.7s steps(1) infinite;
+  margin-left: 2px;
+}
+
+@keyframes piscar {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#clock {
+  font-size: 15px;
+}
+
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; /* Espaçamento entre os dois elementos */
+  max-width: 1200px;
+  margin: 3rem auto;
+}
+
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1; /* Toma o restante do espaço disponível */
+}
+
+#area_texto {
+  width: 100%;
+  background-color: var(--cor-terciaria);
+  font-family: var(--fonte-secundária);
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  resize: none;
+  font-weight: 500;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.img_icone {
+  width: 20px;
+  height: auto;
+}
+
+.icone-correcao {
+  font-family: var(--fonte-secundária);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #495057;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+#button_criptografar,
+#button_descriptografar {
+  border-radius: 24px;
+  height: 67px;
+  width: 328px;
+  font-family: var(--font);
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+#button_criptografar {
+  background-color: #020659;
+  color: white;
+}
+
+#button_descriptografar {
+  background-color: var(--cor-terciaria);
+  color: var(--cor-secundaria);
+  border: 3px solid #020659;
+}
+
+.key-input {
+  margin: 1rem 0;
+  font-family: var(--fonte-secundária);
+  font-size: 1rem;
+  color: #495057;
+}
+
+#chave {
+  width: 100px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Seção do resultado */
+.secao__resultado {
+  background-color: white;
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+  border-radius: 32px;
+  box-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.05),
+      0 12px 24px rgba(0, 0, 0, 0.03),
+      0 16px 32px rgba(0, 0, 0, 0.02);
+  font-family: var(--fonte-secundária);
+  padding: 1.5rem;
+}
+
+.conteudo-centralizado {
+  text-align: center;
+  font-size: 0.8rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.resultado-criptografado {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  display: none; 
+  width: 100%;
+  margin-top: 20px; 
+  padding-bottom: 20px; 
+}
+
+#resultado-texto {
+  width: 100%;
+  margin-bottom: 50vh;
+}
+
+
+#button_copiar {
+  border-radius: 24px;
+  height: 67px;
+  width: 328px;
+  background-color: #FFFFFF;
+  color: black;
+  border-color: #020659;
+  font-family: Share Tech Mono;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .secao__resultado {
+    width: 90%;
+    margin: 2rem auto;
+  }
+
+  .input-section {
+    width: 100%;
+  }
+}
+
