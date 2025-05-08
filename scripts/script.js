@@ -1,4 +1,4 @@
-//base toda da criptografia de cezar
+//base toda da criptografia de cesar
   function cifraDeCesar(texto, chave) {
     let resultado = "";
   
@@ -63,7 +63,7 @@
     document.querySelector(".resultado-criptografado").style.display = "none";
   });
   
-  //
+
 function validarCorrecao() {
     const areaTexto = document.getElementById("area_texto");
     const textoInstrucao = document.getElementById("texto-instrucao");
