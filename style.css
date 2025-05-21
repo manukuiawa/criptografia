@@ -46,11 +46,10 @@ body {
   font-size: 15px;
 }
 
-
 .content {
   display: flex;
   justify-content: space-between;
-  gap: 2rem; /* Espaçamento entre os dois elementos */
+  gap: 2rem;
   max-width: 1200px;
   margin: 3rem auto;
 }
@@ -64,8 +63,8 @@ body {
 
 #area_texto {
   width: 100%;
-  background-color: var(--cor-terciaria);
-  font-family: var(--fonte-secundária);
+  background-color: #dae5ec;
+  font-family: 'Share Tech Mono';
   font-size: 1.5rem;
   border: none;
   outline: none;
@@ -75,16 +74,53 @@ body {
   box-sizing: border-box;
 }
 
-.img_icone {
-  width: 20px;
-  height: auto;
-}
-
 .icone-correcao {
-  font-family: var(--fonte-secundária);
+  font-family: 'Share Tech Mono';
   font-size: 0.7rem;
   font-weight: 600;
   color: #495057;
+}
+
+#mensagem {
+  font-family: 'Share Tech Mono';
+  font-size: 1rem;
+  color: #e41313;
+}
+
+.key-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.key-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.key-input {
+  padding: 0.6rem 1rem;
+  border: 2px solid #888;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+  min-width: 180px;
+  font-family: 'Share Tech Mono';
+}
+
+.key-input:focus {
+  border-color: #0a133d;
+  box-shadow: 0 0 10px #2724b6aa;
+}
+
+.mensagem-erro {
+  color: red;
+  font-size: 0.9em;
+  display: none;
 }
 
 .buttons {
@@ -94,15 +130,15 @@ body {
   margin-top: 1rem;
 }
 
-#button_criptografar,
-#button_descriptografar {
-  border-radius: 24px;
-  height: 67px;
+button {
   width: 328px;
-  font-family: var(--font);
+  height: 67px;
+  border-radius: 24px;
+  font-family: 'Share Tech Mono';
   font-size: 1rem;
   border: none;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #button_criptografar {
@@ -111,60 +147,56 @@ body {
 }
 
 #button_descriptografar {
-  background-color: var(--cor-terciaria);
-  color: var(--cor-secundaria);
+  background-color: #dae5ec;
+  color: black;
   border: 3px solid #020659;
 }
 
-.key-input {
-  margin: 1rem 0;
-  font-family: var(--fonte-secundária);
-  font-size: 1rem;
-  color: #495057;
+button:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2), 0 0 25px rgba(2, 6, 89, 0.5);
+  transform: scale(1.02);
 }
 
-#chave {
-  width: 100px;
-  padding: 0.5rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+button:focus {
   outline: none;
+  box-shadow: 0 0 15px rgba(2, 6, 89, 0.5);
 }
 
 .secao__resultado {
   background-color: white;
   width: 400px;
-  height: auto;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  margin-top: 0;
-  border-radius: 32px;
-  box-shadow: 
-      0 4px 8px rgba(0, 0, 0, 0.1),
-      0 8px 16px rgba(0, 0, 0, 0.05),
-      0 12px 24px rgba(0, 0, 0, 0.03),
-      0 16px 32px rgba(0, 0, 0, 0.02);
-  font-family: var(--fonte-secundária);
-  padding: 1.5rem;
+  font-family: 'Share Tech Mono';
 }
 
 .conteudo-centralizado {
-  text-align: center;
   font-size: 0.8rem;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 0.7rem;
+  align-items: center;
+}
+
+.conteudo-centralizado img {
+  width: 85%;
+  height: auto;
+  border-radius: 5px;
+  display: block;
+  margin: auto;
 }
 
 .resultado-criptografado {
-  display: flex;
+  display: none;
   flex-direction: column;
-  align-items: flex-start; 
-  justify-content: flex-start; 
-  display: none; 
+  align-items: flex-start;
   width: 100%;
-  margin-top: 20px; 
-  padding-bottom: 20px; 
+  margin-top: 20px;
+  padding-bottom: 20px;
+  word-wrap: break-word;
 }
 
 #resultado-texto {
@@ -172,32 +204,50 @@ body {
   margin-bottom: 50vh;
 }
 
-
-#button_copiar {
-  border-radius: 24px;
-  height: 67px;
+#button_copiar,
+#limpar-btn {
   width: 328px;
-  background-color: #FFFFFF;
-  color: black;
-  border-color: #020659;
-  font-family: Share Tech Mono;
+  height: 67px;
+  border: none;
+  border-radius: 24px;
+  font-family: "Share Tech Mono";
   font-size: 1rem;
   cursor: pointer;
+  margin-bottom: 12px;
+  transition: 0.3s ease;
 }
 
-@media screen and (max-width: 768px) {
-  .content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .secao__resultado {
-    width: 90%;
-    margin: 2rem auto;
-  }
-
-  .input-section {
-    width: 100%;
-  }
+#button_copiar {
+  background-color: #020659;
+  color: #fff;
 }
 
+#limpar-btn {
+  background-color: white;
+  color: black;
+  border: 3px solid #020659;
+}
+
+#button_copiar:hover,
+#limpar-btn:hover,
+#button_copiar:focus,
+#limpar-btn:focus {
+  box-shadow: 0 0 15px rgba(2, 6, 89, 0.5);
+  transform: scale(1.02);
+  outline: none;
+}
+
+.copiado-msg {
+  display: none;
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copiado-msg.show {
+  display: block;
+  opacity: 1;
+}

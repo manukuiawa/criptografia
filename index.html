@@ -9,7 +9,7 @@
 <body>
       <header class="cabecalho">
         <figure>
-          <img src="./assets/logo.png" alt="Logo do site">
+          <img src="assets/logo.png" alt="Logo do site">
         </figure>
 
         <div class="digitando" aria-label="Texto animado digitando">
@@ -33,40 +33,49 @@
                 aria-describedby="texto-instrucao"
               ></textarea>
             </label>
-      
-            <div class="icone-com-icone">
-              <p id="texto-instrucao" class="icone-correcao">Até 138 caracteres</p>
-            </div>
+            
+            <p id="mensagem"></p>
+            <p id="texto-instrucao" class="icone-correcao">Até 138 caracteres</p>
     
-            <div class="key-input">
-              <label for="chave">Quantidade de chaves (deslocamento):</label>
-              <input type="number" id="chave" name="chave" min="1" max="25" value="1" />
+            <div class="key-container">
+              <label for="chave" class="key-label">Insira a Chave Secreta:</label>
+              <input
+                type="text"
+                id="chave"
+                class="key-input"
+                maxlength="138"
+                autocomplete="off"
+                title="A chave deve conter apenas letras e números, sem espaços ou caracteres especiais."/>
+              <p id="erro-chave" class="mensagem-erro">Caracteres especiais, acentos ou espaços não são permitidos.</p>
             </div>
-      
+
             <div class="buttons">
-              <button type="button" onclick="exibirCriptografia()" id="button_criptografar">Criptografar</button>
-              <button type="button" onclick="exibirDescriptografia()" id="button_descriptografar">Descriptografar</button>
+              <button type="button" onclick="validarCampos(); exibirCriptografia()" id="button_criptografar">Criptografar</button>
+              <button type="button" onclick="validarCampos(), exibirDescriptografia()" id="button_descriptografar">Descriptografar</button>
             </div>
           </form>
-    
+
           <div class="secao__resultado">
             <div class="conteudo-centralizado">
-              <img src="assets/resultado.png" alt="Descrição da imagem" style="width: 85%; height: auto; margin: auto; display: block; border-radius: 5px;">
+              <img src="assets/resultado.png" alt="Descrição da imagem">
               <h2>Nenhuma mensagem encontrada</h2>
               <p class="text_div">Digite um texto que você deseja criptografar ou descriptografar.</p>
-            </div>
-    
+            </div> 
+
             <div class="resultado-criptografado">
               <p id="resultado-texto"></p>
               <button onclick="copiarTexto()" id="button_copiar">Copiar</button>
+              <button onclick="limparCampos()" id="limpar-btn">Limpar</button>
+              <p id="copiado-msg" class="copiado-msg">Texto copiado!</p>
+              <p id="limpo-msg" class="copiado-msg">Limpado com Sucesso!</p>
             </div>
           </div> 
         </section>
       </main>
     
-    <script src="/scripts/hora.js"></script>
-    <script src="/scripts/digitação.js"></script>
-    <script src="/scripts/script.js"></script>
+    <script src="scripts/cabeçalho.js"></script>
+    <script src="scripts/criptografia.js"></script>
+    <script src="scripts/script.js"></script>
     
 </body>
 </html>
