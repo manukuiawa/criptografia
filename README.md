@@ -44,7 +44,7 @@ Desenvolvido como parte da Avaliação Prática Supervisionada (APS) do curso de
 
 ---
 
-## 👩‍💻 Sobre a Desenvolvedora
+## 👩‍💻 Autoras do Projeto
 
 Projeto desenvolvido por **Manu e Evelyn**, estudantes de Ciência da Computação. 
 
